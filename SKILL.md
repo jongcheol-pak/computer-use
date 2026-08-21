@@ -9,7 +9,7 @@ description: >-
   other desktop UI. Triggers include "computer use", "maid computer", "read
   Notepad", "read Slack", "control/click/read in a desktop app", and "get app
   state".
-version: 1.0.0
+version: 1.0.1
 ---
 
 # Computer Use (Windows)
