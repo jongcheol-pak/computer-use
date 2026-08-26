@@ -6,23 +6,24 @@ description: >-
   desktop app interaction: list apps/windows, get app state, read visible UI,
   click controls, type, press keys, scroll, drag, set values, or perform
   accessibility actions. Also use for browser windows, webviews, Maid app UI, or
-  other desktop UI. Triggers include "computer use", "maid computer", "read
-  Notepad", "read Slack", "control/click/read in a desktop app", and "get app
-  state".
-version: 1.0.1
+  other desktop UI. Triggers include "computer use", "maid computer", "maid-cli
+  computer", "read Notepad", "read Slack", "control/click/read in a desktop app",
+  and "get app state".
+version: 1.0.2
 ---
 
 # Computer Use (Windows)
 
 This file is a discovery stub, not the usage guide. The full, version-matched computer-use
-reference is served by the `maid` binary itself — kept out of this file on purpose so it can
-never drift from the binary that will actually run your commands.
+reference is served by the `maid-cli` binary itself — kept out of this file on purpose so it
+can never drift from the binary that will actually run your commands.
 
 Engage Maid's computer-use surface whenever you must inspect or operate a local desktop app
 window — reading its accessibility tree, taking screenshots, or performing safe UI actions
 (click controls, type, press keys, scroll, drag, set values). It also covers browser
 windows, webviews, and Maid's own UI. Triggers include "computer use", "maid computer",
-"read Notepad", "read Slack", "control/click/read in a desktop app", and "get app state".
+"maid-cli computer", "read Notepad", "read Slack", "control/click/read in a desktop app",
+and "get app state".
 
 This provider is **Windows-only**. It talks to UI Automation and Win32 directly — there is
 no sidecar process and no PowerShell dependency.
@@ -32,8 +33,12 @@ no sidecar process and no PowerShell dependency.
 Choose the executable once and reuse it for every later command:
 
 - If the `MAID_CLI_COMMAND` environment variable is set, use its value.
-- Otherwise, use the `maid.exe` that is already on `PATH`.
+- Otherwise, use the `maid-cli.exe` that is already on `PATH`.
 - Otherwise, use the full path of the installed binary.
+
+**It is the CLI binary, not the app binary.** Maid ships two executables that are built
+together: the app opens the workspace window and has no console, so it does not answer
+these commands; `maid-cli.exe` is the one that reads them and writes JSON to stdout.
 
 Below, `MAID` is a placeholder for the executable you resolved. Substitute it before
 running anything; do not create a shell variable or run `MAID` literally. This works the
@@ -73,4 +78,4 @@ Beyond these, read the guide rather than guessing a command surface.
 This skill is deliberately named `maid-computer-use` so it can be installed alongside
 Orca's `computer-use` without either one overwriting the other — both live under
 `~/.agents/skills/`. If both are present, use the one that matches the app you intend to
-drive: `maid computer ...` here, `orca computer ...` there.
+drive: `maid-cli computer ...` here, `orca computer ...` there.
