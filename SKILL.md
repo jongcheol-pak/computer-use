@@ -9,7 +9,7 @@ description: >-
   other desktop UI. Triggers include "computer use", "maid computer", "maid-cli
   computer", "read Notepad", "read Slack", "control/click/read in a desktop app",
   and "get app state".
-version: 1.0.2
+version: 1.0.3
 ---
 
 # Computer Use (Windows)
@@ -60,6 +60,13 @@ accessibility actions. Read it first, then run the specific command you need.
 Don't guess subcommands or flags from memory or from a cached copy of this stub. They may
 change between Maid releases, and this file deliberately does not list them. Prefer
 `--json` for agent-driven calls; **every response is JSON, including errors**.
+
+**Drain stdout while the command runs — never wait for exit and read afterwards.** This
+very command prints about 14 KB, more than a pipe's default buffer holds, so a caller that
+blocks on process exit before reading will deadlock: the CLI is blocked on a write nobody
+is reading, and neither side moves. Use a call that reads and waits together
+(`subprocess.run(..., capture_output=True)`, `Command::output()`, `execFile`), not `wait()`
+followed by `read()`. This applies to every Maid command, not just this one.
 
 ## Orientation commands
 
