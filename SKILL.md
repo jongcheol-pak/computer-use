@@ -9,7 +9,7 @@ description: >-
   other desktop UI. Triggers include "computer use", "maid computer", "maid-cli
   computer", "read Notepad", "read Slack", "control/click/read in a desktop app",
   and "get app state".
-version: 1.0.3
+version: 1.1.0
 ---
 
 # Computer Use (Windows)
@@ -80,9 +80,8 @@ MAID computer list-windows --app <name> --json
 
 Beyond these, read the guide rather than guessing a command surface.
 
-## Relationship to Orca's `computer-use`
+## Why the name starts with `maid-`
 
-This skill is deliberately named `maid-computer-use` so it can be installed alongside
-Orca's `computer-use` without either one overwriting the other — both live under
-`~/.agents/skills/`. If both are present, use the one that matches the app you intend to
-drive: `maid-cli computer ...` here, `orca computer ...` there.
+`~/.agents/skills/` is a shared directory that several tools install into, so a skill whose
+name collides with another tool's gets overwritten by whichever was installed last. That is
+why this skill is named `maid-computer-use` and drives `maid-cli computer ...`.
