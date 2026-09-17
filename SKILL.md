@@ -1,12 +1,12 @@
 ---
-name: maid-computer-use
+name: karina-computer-use
 description: >-
-  Use Maid's computer-use CLI to inspect and operate local Windows desktop app
+  Use Karina's computer-use CLI to inspect and operate local Windows desktop app
   windows through accessibility trees, screenshots, and safe UI actions. Use for
   desktop app interaction: list apps/windows, get app state, read visible UI,
   click controls, type, press keys, scroll, drag, set values, or perform
-  accessibility actions. Also use for browser windows, webviews, Maid app UI, or
-  other desktop UI. Triggers include "computer use", "maid computer", "maid-cli
+  accessibility actions. Also use for browser windows, webviews, Karina app UI, or
+  other desktop UI. Triggers include "computer use", "karina computer", "karina-cli
   computer", "read Notepad", "read Slack", "control/click/read in a desktop app",
   and "get app state".
 version: 1.1.0
@@ -15,14 +15,14 @@ version: 1.1.0
 # Computer Use (Windows)
 
 This file is a discovery stub, not the usage guide. The full, version-matched computer-use
-reference is served by the `maid-cli` binary itself — kept out of this file on purpose so it
+reference is served by the `karina-cli` binary itself — kept out of this file on purpose so it
 can never drift from the binary that will actually run your commands.
 
-Engage Maid's computer-use surface whenever you must inspect or operate a local desktop app
+Engage Karina's computer-use surface whenever you must inspect or operate a local desktop app
 window — reading its accessibility tree, taking screenshots, or performing safe UI actions
 (click controls, type, press keys, scroll, drag, set values). It also covers browser
-windows, webviews, and Maid's own UI. Triggers include "computer use", "maid computer",
-"maid-cli computer", "read Notepad", "read Slack", "control/click/read in a desktop app",
+windows, webviews, and Karina's own UI. Triggers include "computer use", "karina computer",
+"karina-cli computer", "read Notepad", "read Slack", "control/click/read in a desktop app",
 and "get app state".
 
 This provider is **Windows-only**. It talks to UI Automation and Win32 directly — there is
@@ -32,25 +32,25 @@ no sidecar process and no PowerShell dependency.
 
 Choose the executable once and reuse it for every later command:
 
-- If the `MAID_CLI_COMMAND` environment variable is set, use its value.
-- Otherwise, use the `maid-cli.exe` that is already on `PATH`.
+- If the `KARINA_CLI_COMMAND` environment variable is set, use its value.
+- Otherwise, use the `karina-cli.exe` that is already on `PATH`.
 - Otherwise, use the full path of the installed binary.
 
-**It is the CLI binary, not the app binary.** Maid ships two executables that are built
+**It is the CLI binary, not the app binary.** Karina ships two executables that are built
 together: the app opens the workspace window and has no console, so it does not answer
-these commands; `maid-cli.exe` is the one that reads them and writes JSON to stdout.
+these commands; `karina-cli.exe` is the one that reads them and writes JSON to stdout.
 
-Below, `MAID` is a placeholder for the executable you resolved. Substitute it before
-running anything; do not create a shell variable or run `MAID` literally. This works the
+Below, `KARINA` is a placeholder for the executable you resolved. Substitute it before
+running anything; do not create a shell variable or run `KARINA` literally. This works the
 same way in PowerShell, cmd.exe, and POSIX shells.
 
 If the selected executable cannot run, report its exact error and stop. Do not fall through
-to another executable, which could silently target a different Maid build.
+to another executable, which could silently target a different Karina build.
 
-## Load the full guide before running Maid commands
+## Load the full guide before running Karina commands
 
 ```text
-MAID skills get maid-computer-use
+KARINA skills get karina-computer-use
 ```
 
 That prints the complete, version-matched guide for the exact binary that will handle your
@@ -58,7 +58,7 @@ next commands — listing apps/windows, reading UI, and driving clicks, typing, 
 accessibility actions. Read it first, then run the specific command you need.
 
 Don't guess subcommands or flags from memory or from a cached copy of this stub. They may
-change between Maid releases, and this file deliberately does not list them. Prefer
+change between Karina releases, and this file deliberately does not list them. Prefer
 `--json` for agent-driven calls; **every response is JSON, including errors**.
 
 **Drain stdout while the command runs — never wait for exit and read afterwards.** This
@@ -66,22 +66,22 @@ very command prints about 14 KB, more than a pipe's default buffer holds, so a c
 blocks on process exit before reading will deadlock: the CLI is blocked on a write nobody
 is reading, and neither side moves. Use a call that reads and waits together
 (`subprocess.run(..., capture_output=True)`, `Command::output()`, `execFile`), not `wait()`
-followed by `read()`. This applies to every Maid command, not just this one.
+followed by `read()`. This applies to every Karina command, not just this one.
 
 ## Orientation commands
 
 These three are stable and safe to run before you have read the guide:
 
 ```text
-MAID computer capabilities --json
-MAID computer list-apps --json
-MAID computer list-windows --app <name> --json
+KARINA computer capabilities --json
+KARINA computer list-apps --json
+KARINA computer list-windows --app <name> --json
 ```
 
 Beyond these, read the guide rather than guessing a command surface.
 
-## Why the name starts with `maid-`
+## Why the name starts with `karina-`
 
 `~/.agents/skills/` is a shared directory that several tools install into, so a skill whose
 name collides with another tool's gets overwritten by whichever was installed last. That is
-why this skill is named `maid-computer-use` and drives `maid-cli computer ...`.
+why this skill is named `karina-computer-use` and drives `karina-cli computer ...`.

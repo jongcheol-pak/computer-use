@@ -1,25 +1,25 @@
 # computer-use
 
-[Maid](https://github.com/jongcheol-pak/Maid) 의 **컴퓨터 사용** 스킬이 배포되는 자리다.
+[Karina](https://github.com/jongcheol-pak/Karina) 의 **컴퓨터 사용** 스킬이 배포되는 자리다.
 agent 가 이 PC 의 다른 앱을 직접 보고 조작할 수 있게 하는 능력을 알려 준다.
 
 ## 이 저장소에 있는 것
 
 `SKILL.md` 하나뿐이고, 그것은 **discovery stub** 이다 — 명령 목록·플래그·오류 표 같은
-**전문은 여기 없다.** 전문은 Maid 바이너리가 낸다:
+**전문은 여기 없다.** 전문은 Karina 바이너리가 낸다:
 
 ```text
-maid skills get maid-computer-use
+karina skills get karina-computer-use
 ```
 
-**일부러 그렇게 했다.** 사용법을 이 파일에 적으면 Maid 가 판을 올릴 때마다 이 파일이
+**일부러 그렇게 했다.** 사용법을 이 파일에 적으면 Karina 가 판을 올릴 때마다 이 파일이
 뒤처지고, 그러면 **실제로 명령을 처리할 바이너리와 다른 것을 읽은 agent** 가 없는 플래그를
 쓰게 된다. 바이너리가 스스로 내면 그 어긋남이 원리적으로 생기지 않는다.
 
 ## 설치
 
-Maid 의 **설정 → AI 기능 → 컴퓨터 사용**에서 [설치]를 누른다. 이 저장소의 `SKILL.md` 를 받아
-`~/.agents/skills/maid-computer-use/SKILL.md` 에 놓는다. 원격에 닿지 못하면 앱에 들어 있는
+Karina 의 **설정 → AI 기능 → 컴퓨터 사용**에서 [설치]를 누른다. 이 저장소의 `SKILL.md` 를 받아
+`~/.agents/skills/karina-computer-use/SKILL.md` 에 놓는다. 원격에 닿지 못하면 앱에 들어 있는
 판을 대신 놓으므로 오프라인에서도 설치된다.
 
 ## 무엇을 할 수 있나
@@ -37,7 +37,7 @@ Maid 의 **설정 → AI 기능 → 컴퓨터 사용**에서 [설치]를 누른�
 - **가려진 창도 제대로 찍는다.** 창에게 스스로 그리게 하므로(`PrintWindow`) 위에 다른 창이
   있어도 대상 창의 내용이 온다. 그 방법이 통하지 않으면 화면 영역을 대신 찍고 **「가려졌을 수
   있다」고 응답에 적어** 보낸다.
-- **GPU 로 그리는 앱**(Maid 자신·Zed·일부 Electron)은 접근성 트리가 거의 비어 있다. 그것은
+- **GPU 로 그리는 앱**(Karina 자신·Zed·일부 Electron)은 접근성 트리가 거의 비어 있다. 그것은
   결함이 아니라 그 앱들이 그리는 방식이고, 그때는 그림과 좌표를 쓴다.
 - **권한 상승된 창**에는 Windows 가 합성 입력을 전달하지 않는다. 그 경우 성공을 가장하지 않고
   `unsupported_capability` 로 정직하게 실패한다.
@@ -50,9 +50,9 @@ Maid 의 **설정 → AI 기능 → 컴퓨터 사용**에서 [설치]를 누른�
 
 ## Orca 의 `computer-use` 와 함께 쓰기
 
-이름이 `maid-computer-use` 로 갈려 있어 **둘을 같이 설치해도 서로를 덮어쓰지 않는다**
+이름이 `karina-computer-use` 로 갈려 있어 **둘을 같이 설치해도 서로를 덮어쓰지 않는다**
 (둘 다 `~/.agents/skills/` 아래에 산다). 조작할 앱에 맞는 쪽을 쓰면 된다.
 
 ## 라이선스
 
-Maid 본체와 같다.
+Karina 본체와 같다.
