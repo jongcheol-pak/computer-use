@@ -1,15 +1,13 @@
 ---
 name: karina-computer-use
 description: >-
-  Use Karina's computer-use CLI to inspect and operate local Windows desktop app
-  windows through accessibility trees, screenshots, and safe UI actions. Use for
-  desktop app interaction: list apps/windows, get app state, read visible UI,
-  click controls, type, press keys, scroll, drag, set values, or perform
-  accessibility actions. Also use for browser windows, webviews, Karina app UI, or
-  other desktop UI. Triggers include "computer use", "karina computer", "karina-cli
-  computer", "read Notepad", "read Slack", "control/click/read in a desktop app",
-  and "get app state".
-version: 1.1.0
+  Drives the GUI of a visible local Windows app window through `karina-cli computer`:
+  accessibility tree, clicks, typing, menus, dialogs, and screenshots in native apps
+  and external browser windows (Chrome, Edge) or webviews. Prefer a programmatic path
+  (shell, filesystem, git, HTTP, existing CLIs) whenever it can complete the task.
+  Use only when a visible window needs GUI control those cannot reach. Do not use
+  for Karina's browser tabs (`karina-browser-use`).
+version: 1.2.0
 ---
 
 # Computer Use (Windows)
@@ -18,12 +16,11 @@ This file is a discovery stub, not the usage guide. The full, version-matched co
 reference is served by the `karina-cli` binary itself — kept out of this file on purpose so it
 can never drift from the binary that will actually run your commands.
 
-Engage Karina's computer-use surface whenever you must inspect or operate a local desktop app
-window — reading its accessibility tree, taking screenshots, or performing safe UI actions
-(click controls, type, press keys, scroll, drag, set values). It also covers browser
-windows, webviews, and Karina's own UI. Triggers include "computer use", "karina computer",
-"karina-cli computer", "read Notepad", "read Slack", "control/click/read in a desktop app",
-and "get app state".
+Engage Karina's computer-use surface to drive a visible app window — reading its accessibility
+tree, taking screenshots, or performing safe UI actions (click controls, type, press keys,
+scroll, drag, set values). Prefer a programmatic path (shell, filesystem, git, HTTP, existing
+CLIs) whenever it can complete the task; use this surface only when a visible window needs GUI
+control those cannot reach. Do not use it for Karina's browser tabs (`karina-browser-use`).
 
 This provider is **Windows-only**. It talks to UI Automation and Win32 directly — there is
 no sidecar process and no PowerShell dependency.
