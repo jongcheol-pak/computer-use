@@ -7,7 +7,7 @@ description: >-
   (shell, filesystem, git, HTTP, existing CLIs) whenever it can complete the task.
   Use only when a visible window needs GUI control those cannot reach. Do not use
   for Karina's browser tabs (`karina-browser-use`).
-version: 1.3.0
+version: 1.3.1
 ---
 
 # Computer Use (Windows)
@@ -30,12 +30,15 @@ no sidecar process and no PowerShell dependency.
 Choose the executable once and reuse it for every later command:
 
 - If the `KARINA_CLI_COMMAND` environment variable is set, use its value.
-- Otherwise, use the `karina-cli.exe` that is already on `PATH`.
+- Otherwise, use the one already on `PATH`: `karina-cli` for the release build,
+  `karina-dev-cli` for the dev build (Settings → Browser → **Karina CLI 활성화** puts
+  whichever build you are running there, and each name reaches its own app).
 - Otherwise, use the full path of the installed binary.
 
 **It is the CLI binary, not the app binary.** Karina ships two executables that are built
 together: the app opens the workspace window and has no console, so it does not answer
-these commands; `karina-cli.exe` is the one that reads them and writes JSON to stdout.
+these commands; the CLI (`karina-cli.exe`, or `karina-dev-cli.exe` in a dev build) is the
+one that reads them and writes JSON to stdout.
 
 Below, `KARINA` is a placeholder for the executable you resolved. Substitute it before
 running anything; do not create a shell variable or run `KARINA` literally. This works the
