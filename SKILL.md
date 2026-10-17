@@ -7,7 +7,7 @@ description: >-
   (shell, filesystem, git, HTTP, existing CLIs) whenever it can complete the task.
   Use only when a visible window needs GUI control those cannot reach. Do not use
   for Karina's browser tabs (`karina-browser-use`).
-version: 1.3.1
+version: 1.3.2
 ---
 
 # Computer Use (Windows)
@@ -31,7 +31,7 @@ Choose the executable once and reuse it for every later command:
 
 - If the `KARINA_CLI_COMMAND` environment variable is set, use its value.
 - Otherwise, use the one already on `PATH`: `karina-cli` for the release build,
-  `karina-dev-cli` for the dev build (Settings → Browser → **Karina CLI 활성화** puts
+  `karina-dev-cli` for the dev build (Settings → AI 기능 → **Karina CLI** puts
   whichever build you are running there, and each name reaches its own app).
 - Otherwise, use the full path of the installed binary.
 
